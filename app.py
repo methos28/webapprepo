@@ -59,4 +59,4 @@ def validate_name(name):
 app.add_url_rule('/','webio_view',webio_view(exam),methods=['GET','POST','OPTIONS'])
 
 if __name__ == '__main__':
-    app.run(ssl_context=('cert.pem', 'key.pem'), debug=True, port=443, host="0.0.0.0")
+    app.run(debug=True, port=80, host="0.0.0.0")
