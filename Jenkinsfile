@@ -64,6 +64,7 @@ pipeline {
                           --name '"$CONTAINER_NAME"' \
                           -p '"$APP_PORT"':'"$INTERNAL_PORT"' \
                           '"$DOCKERHUB_USER"'/'"$IMAGE_NAME"':'"$IMAGE_TAG"'
+                        docker image prune -af
                     '
                     '''
                 }
