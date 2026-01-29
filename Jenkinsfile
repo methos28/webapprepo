@@ -25,7 +25,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh '''
-                docker build -t $IMAGE_NAME:$IMAGE_TAG .
+                sudo docker build -t $IMAGE_NAME:$IMAGE_TAG .
                 '''
             }
         }
@@ -49,7 +49,7 @@ pipeline {
                         docker run -d \
                           --name '"$CONTAINER_NAME"' \
                           -p '"$APP_PORT"':'"$INTERNAL_PORT"' \
-                          '"$methos"'/'"$IMAGE_NAME"':'"$IMAGE_TAG"'
+                          '"$DOCKERHUB_USER"'/'"$IMAGE_NAME"':'"$IMAGE_TAG"'
                     '
                     '''
                 }
