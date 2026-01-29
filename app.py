@@ -37,6 +37,10 @@ def exam():
     if q5 == 'Numpy':
         c+=1
 
+    q6 = radio("Q6. Which is the best CI/CD Tool to use",['Argo CD','Jenkins','Git Actions','Git Lab CI/CD'])
+    if q5 == 'Jenkins':
+        c+=1
+
     if c>3:
     	message = [style(put_html("<h1 style='display:inline;border-bottom:0px'>Congratulations !! </h1>"+ name + ", your score is <b>"+ str(c) + "</b><br><br>") ,'color:green;'),style(put_html("<p>Result : <b>PASSED</b></p>"),'color:green'), put_html("<b>Thank You for your participation.</b>")]
     	popup("Result", content=message, size='large', implicit_close=True, closable=True)
@@ -60,3 +64,4 @@ app.add_url_rule('/','webio_view',webio_view(exam),methods=['GET','POST','OPTION
 
 if __name__ == '__main__':
     app.run(debug=True, port=80, host="0.0.0.0")
+
