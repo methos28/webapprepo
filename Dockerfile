@@ -1,4 +1,4 @@
-FROM python:3.11-slim AS builder
+FROM python:3.11-slim AS prep
 
 RUN apt-get update && apt-get install -y \
     git \
@@ -13,9 +13,9 @@ RUN pip3 install --no-cache-dir --prefix=/install -r requirements.txt
 
 FROM python:3.11-slim
 
-COPY --from=builder /install /usr/local
+COPY --from=prep /install /usr/local
 
-COPY --from=builder /webapprepo /webapprepo
+COPY --from=prep /webapprepo /webapprepo
 
 WORKDIR /webapprepo
 
